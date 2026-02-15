@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>untuk kamu 💗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', system-ui, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #ffb3c6 0%, #ffc9d9 25%, #ffe0eb 50%, #ffd0dd 75%, #ffb3c6 100%);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* floating hearts */
+        .floating-heart {
+            position: fixed;
+            font-size: 20px;
+            opacity: 0.6;
+            user-select: none;
+            pointer-events: none;
+            z-index: 2;
+            animation: floatUp 8s linear forwards;
+            color: #ff4d6d;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* sparkles */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: sparkleAnim 4s linear forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 245, 250, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 50px 50px 30px 30px;
+            box-shadow: 
+                0 25px 40px rgba(255, 64, 129, 0.25),
+                0 0 0 2px rgba(255, 255, 255, 0.8) inset,
+                0 0 20px #ffb6c1;
+            padding: 30px 25px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 220, 240, 0.9);
+        }
+
+        /* header with wave */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #c44569, #e66767, #c44569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 5px 10px #ffb8c6);
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 5px 10px #ff8da1); }
+            50% { filter: drop-shadow(0 8px 20px #ff4d6d); }
+        }
+
+        .sub-header {
+            font-size: 1.1rem;
+            color: #b13e5c;
+            background: rgba(255, 255, 255, 0.6);
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            margin-top: 5px;
+            border: 1px solid white;
+        }
+
+        /* photo gallery style */
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .photo-frame {
+            width: 260px;
+            height: 260px;
+            border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+            overflow: hidden;
+            border: 6px solid white;
+            box-shadow: 
+                0 15px 30px #ff99aa,
+                0 0 0 4px #ffe2eb;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: borderGlow 3s infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            from { box-shadow: 0 15px 30px #ff99aa, 0 0 0 4px #ffe2eb; }
+            to { box-shadow: 0 20px 40px #ff4d6d, 0 0 0 8px #fff0f5; }
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(3deg);
+            border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.1);
+        }
+
+        /* music player with cute design */
+        .music-section {
+            background: rgba(255, 220, 240, 0.7);
+            border-radius: 60px;
+            padding: 18px 20px;
+            margin: 25px 0;
+            border: 2px solid white;
+            box-shadow: 0 8px 0 #ff99aa;
+        }
+
+        .music-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #a63b5b;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .music-header span {
+            font-size: 1.3rem;
+        }
+
+        .music-player {
+            width: 100%;
+        }
+
+        .music-player audio {
+            width: 100%;
+            border-radius: 40px;
+            background: #ffe4ec;
+            border: 2px solid white;
+        }
+
+        /* custom audio styling (chrome based) */
+        audio::-webkit-media-controls-panel {
+            background-color: #ffe2eb;
+        }
+        audio::-webkit-media-controls-play-button {
+            background-color: #ffb3c6;
+            border-radius: 50%;
+        }
+        audio::-webkit-media-controls-timeline {
+            background-color: #ffc9d9;
+            border-radius: 30px;
+            margin: 0 10px;
+        }
+
+        .song-title {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #942d50;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* long message box - super panjang dan natural */
+        .message-box {
+            background: rgba(255, 250, 250, 0.8);
+            border-radius: 40px 40px 20px 20px;
+            padding: 30px 25px;
+            margin: 30px 0 20px;
+            border: 3px dashed #ffb0c3;
+            box-shadow: inset 0 0 30px #ffe2f0, 0 10px 20px rgba(255, 128, 128, 0.2);
+            max-height: 450px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #ff8da1 #ffe2eb;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #581c37;
+        }
+
+        .message-box::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .message-box::-webkit-scrollbar-track {
+            background: #ffe2eb;
+            border-radius: 20px;
+        }
+
+        .message-box::-webkit-scrollbar-thumb {
+            background: #ff8da1;
+            border-radius: 20px;
+            border: 2px solid #ffe2eb;
+        }
+
+        .message-box p {
+            margin-bottom: 20px;
+            text-align: left;
+            word-break: break-word;
+        }
+
+        .message-box p:last-child {
+            margin-bottom: 5px;
+        }
+
+        .message-box i {
+            color: #c1436a;
+            display: block;
+            text-align: right;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        /* footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px 0;
+            color: #a53860;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .date-stamp {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 40px;
+            box-shadow: 0 3px 0 #ffb3c6;
+        }
+
+        .signature {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5px 20px;
+            border-radius: 40px;
+          }
+
+        /* floating decorations */
+        .deco-flower {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            z-index: 0;
+            animation: slowSpin 20s linear infinite;
+        }
+
+        @keyframes slowSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .deco-flower-1 { top: 2%; left: 1%; }
+        .deco-flower-2 { bottom: 2%; right: 1%; }
+        .deco-flower-3 { top: 15%; right: 3%; }
+        .deco-flower-4 { bottom: 20%; left: 2%; }
+
+        /* responsive */
+        @media (max-width: 600px) {
+            .container { padding: 20px 15px; }
+            .header h1 { font-size: 1.8rem; }
+            .photo-frame { width: 200px; height: 200px; }
+            .message-box { font-size: 1rem; padding: 20px; max-height: 400px; }
+            .footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- floating hearts bakal muncul lewat js -->
+    <div id="heart-container"></div>
+
+    <!-- dekorasi bunga static -->
+    <div class="deco-flower deco-flower-1">🌸</div>
+    <div class="deco-flower deco-flower-2">🌼</div>
+    <div class="deco-flower deco-flower-3">🌺</div>
+    <div class="deco-flower deco-flower-4">💮</div>
+
+    <div class="container">
+        <div class="header">
+            <h1>💕 untuk kamu, indli 💕</h1>
+            <div class="sub-header">
+                <span>🐣 sedikit coretan dari aku 🐣</span>
+            </div>
+        </div>
+
+        <!-- foto kita berdua -->
+        <div class="photo-container">
+            <div class="photo-frame">
+                <img src="kita.jpeg" alt="foto kita" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNmZjlkY2IiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuaYr+i/mOihjOeahOaYr+WkqjwvdGV4dD48L3N2Zz4='">
+            </div>
+        </div>
+
+        <!-- lagu spesial -->
+        <div class="music-section">
+            <div class="music-header">
+                <span>🎵</span>
+                <span>putar lagu spesial buat kamu</span>
+                <span>🎵</span>
+            </div>
+            <div class="music-player">
+                <audio controls autoplay loop>
+                    <source src="about you.mp3" type="audio/mpeg">
+                    <source src="about you.mp3" type="audio/mp3">
+                    browser ga support audio nih :(
+                </audio>
+            </div>
+            <div class="song-title">
+                🎜 about you - 21 savage 🎜
+            </div>
+        </div>
+
+        <!-- isi pesan panjang, natural, pake bahasa sehari-hari, tanpa huruf kapital di awal kalimat (kecuali aku/memang) -->
+        <div class="message-box">
+            <p>
+                sayangku indli, 
+                <br><br>
+                aku cuma mau bilang makasiiii banyakkkkk banget yaa. bukan cuma buat hal hal besar yang keliatan doang, tapi juga buat semua hal kecil yang mungkin orang lain ga sadar, tapi aku ngerasain banget setiap harinya. makasih udah selalu ada, makasih udah mau sabar sama aku sejauuuhhh ini. sabar waktu aku lagi nyebelin, lagi banyak pikiran, atau lagi ga jadi versi terbaik dari diri aku sendiri. kamu tetep milih buat stay, bukan cuma pas gampangnya doang, tapi juga pas ribetnya dan pas aku lagi ga enak diajak ngomong.
+                <br><br>
+                aku juga bersyukur banget kamu mau jadi bagian dari hidup aku. dari sekian banyak kemungkinan yang ada di dunia ini, kamu yang sekarang ada di samping aku, nemenin hari hari aku, dengerin cerita aku yang kadang random, dan pelan pelan jadi partner hidup yang selalu aku harapin. aku tau aku belum sempurna, masih banyak kurangnya, kadang suka bikin kamu bete atau kesel, tapi aku bakal terus belajar jadi lebih baik. belajar buat lebih peka, lebih ngerti kamu, dan jadi seseorang yang pantes buat kamu perjuangin juga.
+                <br><br>
+                kadang aku suka mikir, beruntung banget ya aku ketemu kamu. orang sering bilang jodoh ga akan kemana, tapi menurutku kita juga yang harus saling jaga dan ga saling ninggalin. makasih udah milih buat bertahan sampe detik ini. aku tau hubungan kita ga selalu mulus, pasti ada aja masalah, tapi kita selalu bisa lewatin bareng bareng. itu yang bikin aku makin sayang sama kamu.
+                <br><br>
+                oh iya, makasih juga buat tawa kamu yang selalu bisa bikin hariku cerah, makasih buat pelukan kamu yang hanget, makasih buat cara kamu ngertiin aku tanpa harus banyak ngomong. semua hal kecil yang kamu lakuin itu berarti banget buat aku, lebih dari yang kamu kira. 
+                <br><br>
+                intinya... makasih ya udah mau sampai di titik ini bareng aku. semoga kita bisa terus jalan bareng, ga harus selalu mulus, tapi yang penting selalu bareng. aku pengen terus ada buat kamu, sama kayak kamu yang selalu ada buat aku. 
+                <br><br>
+                i love you lebih dari kata kata yang bisa ngejelasin, lebih dari hati yang aku punya, lebih dari apapun. semoga kita langgeng terus sampai tua nanti, sampai rambut kita putih, sampai ga bisa jalan tanpa pegangan, tapi kita masih saling sayang kayak gini. 
+                <br><br>
+                <i>dari orang yang selalu bangga sama kamu, 
+                <br>yang ga akan pernah nyerah buat kamu</i>
+            </p>
+        </div>
+
+        <!-- footer simple -->
+        <div class="footer">
+            <div class="date-stamp">
+                📅 hari ini dan selamanya
+            </div>
+            <div class="signature">
+                💘 dari cowok kamu, [nama kamu]
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // floating hearts generator (lebih banyak dan variatif)
+        function createFloatingHeart() {
+            const heartContainer = document.getElementById('heart-container');
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            
+            // random pilih bentuk hati
+            const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤍', '💗', '💓', '💖', '💘', '💝'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            
+            // random ukuran
+            const size = Math.floor(Math.random() * 30) + 15;
+            heart.style.fontSize = size + 'px';
+            
+            // random posisi mulai
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10 detik
+            heart.style.opacity = Math.random() * 0.6 + 0.3;
+            
+            heartContainer.appendChild(heart);
+            
+            // hapas setelah selesai
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        // sparkles effect (bintang kecil)
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            sparkle.style.position = 'fixed';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.animation = 'sparkleAnim 3s linear forwards';
+            sparkle.style.color = '#ffe7f0';
+            sparkle.style.zIndex = '5';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+
+        // lebih banyak hati dan sparkles
+        setInterval(createFloatingHeart, 250);  // setiap 250ms
+        setInterval(createSparkle, 400);        // setiap 400ms
+
+        // klik foto muncul pesan romantis random
+        document.querySelector('.photo-frame').addEventListener('click', function() {
+            const messages = [
+                'senyum kamu manis banget tau cayanggggkuuu INDLIIIIIIKUUU',
+                ' foto ini favorit aku tauu cayangggg',
+                'aku kangen pengen cepet ketemu lagi ',
+                ' love you more than anything ',
+                ' kamu cantik banget sih indli'
+            ];
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMsg);
+        });
+
+        // efek tambahan: scroll ke bawah otomatis buat liat pesan panjang (kalo mau)
+        // tapi biarin aja user yang scroll
+        
+        // bikin background lebih hidup dengan bintang kecil tambahan di body
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                createSparkle();
+            }, i * 200);
+        }
+    </script>
+</body>
+</html>
